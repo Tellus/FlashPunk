@@ -26,22 +26,74 @@ package net.flashpunk
 		/**
 		 * X position of the Entity in the World.
 		 */
-		public var x:Number = 0;
+		public function get x():Number { return _internalX; }
+
+		/**
+		 * X position of the Entity in the World.
+		 */
+		public function set x(value:Number):void { _internalX = value; }
+		
+		/**
+		 * X position of the Entity in the World.
+		 */
+		private var _internalX:Number = 0;
 		
 		/**
 		 * Y position of the Entity in the World.
 		 */
-		public var y:Number = 0;
+		private var _internalY:Number = 0;
+
+		/**
+		 * Y position of the Entity in the World.
+		 */
+		public function set y(value:Number):void { _internalY = value; }
+		
+		/**
+		 * Y position of the Entity in the World.
+		 */
+		public function get y():Number { return _internalY; }
 		
 		/**
 		 * Width of the Entity's hitbox.
 		 */
-		public var width:int;
+		public function set width(value:int):void
+		{
+			_width = value;
+		}
+
+		/**
+		 * Width of the Entity's hitbox.
+		 */
+		public function get width():int
+		{
+			return _width;
+		}
+		
+		/**
+		 * Width of the Entity's hitbox.
+		 */
+		private var _width:int;
 		
 		/**
 		 * Height of the Entity's hitbox.
 		 */
-		public var height:int;
+		public function get height():int
+		{
+			return _height;
+		}
+
+		/**
+		 * Height of the Entity's hitbox.
+		 */
+		public function set height(value:int):void
+		{
+			_height = value;
+		}
+		
+		/**
+		 * Height of the Entity's hitbox.
+		 */
+		private var _height:int;
 		
 		/**
 		 * X origin of the Entity's hitbox.
