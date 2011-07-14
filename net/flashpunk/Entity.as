@@ -543,6 +543,7 @@ package net.flashpunk
 				var list:Graphiclist = new Graphiclist;
 				if (graphic) list.add(graphic);
 				graphic = list;
+				(graphic as Graphiclist).add(g);
 			}
 			return g;
 		}
