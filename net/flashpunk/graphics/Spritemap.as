@@ -40,8 +40,8 @@
 			if (!frameHeight) _rect.height = this.source.height;
 			_width = this.source.width;
 			_height = this.source.height;
-			_columns = _width / _rect.width;
-			_rows = _height / _rect.height;
+			_columns = Math.ceil(_width / _rect.width);
+			_rows = Math.ceil(_height / _rect.height);
 			_frameCount = _columns * _rows;
 			this.callback = callback;
 			updateBuffer();
@@ -67,7 +67,9 @@
 		{
 			if (_anim && !complete)
 			{
-				_timer += (FP.timeInFrames ? _anim._frameRate : _anim._frameRate * FP.elapsed) * rate;
+				var timeAdd:Number = _anim._frameRate * rate;
+				if (! FP.timeInFrames) timeAdd *= FP.elapsed;
+				_timer += timeAdd;
 				if (_timer >= 1)
 				{
 					while (_timer >= 1)
@@ -106,6 +108,10 @@
 		 */
 		public function add(name:String, frames:Array, frameRate:Number = 0, loop:Boolean = true):Anim
 		{
+			for (var i:int = 0; i < frames.length; i++) {
+				frames[i] %= _frameCount;
+				if (frames[i] < 0) frames[i] += _frameCount;
+			}
 			(_anims[name] = new Anim(name, frames, frameRate, loop))._parent = this;
 			return _anims[name];
 		}
