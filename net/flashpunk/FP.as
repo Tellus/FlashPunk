@@ -209,7 +209,7 @@
 		/**
 		 * Finds the sign of the provided value.
 		 * @param	value		The Number to evaluate.
-		 * @return  1 if value is non-negative, -1 if non-positive and 0 when 0.
+		 * @return	1 if value &gt; 0, -1 if value &lt; 0, and 0 when value == 0.
 		 */
 		public static function sign(value:Number):int
 		{
@@ -534,8 +534,7 @@
 		}
 		
 		/**
-		 * A pseudo-random Number produced using FP's random seed.
-		 * @return  A value between 0 and 1.
+		 * A pseudo-random Number produced using FP's random seed, where 0 &lt;= Number &lt; 1.
 		 */
 		public static function get random():Number
 		{
@@ -545,8 +544,8 @@
 		
 		/**
 		 * Returns a pseudo-random uint.
-         * @param   amount      Upper bound (non-inclusive) of the random value.
-		 * @return	The uint, between 0 (inclusive) and amount (non-inclusive).
+		 * @param	amount		The returned uint will always be 0 &lt;= uint &lt; amount.
+		 * @return	The uint.
 		 */
 		public static function rand(amount:uint):uint
 		{
